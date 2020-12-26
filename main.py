@@ -53,6 +53,11 @@ async def on_ready():
 
 
 @client.event
+async def on_member_join(member):
+    await member.send("Welcome! :wave:")
+
+
+@client.event
 async def on_message(message):
     if message.author == client.user:
         return
@@ -104,7 +109,7 @@ async def on_message(message):
         if "items" in db.keys():
             while db['running']:
                 items = db['items']
-                print(f"[DEBUG] Checking for {items}")
+                # print(f"[DEBUG] Checking for {items}")
                 for item in items:
                     results = get_stock(item)
                     for r in results:
@@ -160,6 +165,7 @@ async def on_message(message):
 
     if msg.startswith('$stop'):
         db['running'] = False
+        await message.channel.send(":octagonal_sign: stopped :robot:")
 
 
 keep_alive()
