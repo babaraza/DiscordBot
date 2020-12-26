@@ -146,6 +146,7 @@ async def on_message(message):
                 final_dict = {
                     "color": 0x0099ff,
                     "title": 'Live Stock Bot',
+                    "url": 'https://github.com/babaraza/DiscordBot',
                     "description": "Checking for RTX cards",
                     "fields": test_list,
                     "footer": {
